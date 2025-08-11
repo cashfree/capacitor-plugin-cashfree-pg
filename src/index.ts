@@ -7,4 +7,5 @@ const CFPaymentGateway = registerPlugin<CFPaymentGatewayPlugin>('CFPaymentGatewa
 });
 
 export * from './definitions';
+export * from './web';
 export { CFPaymentGateway };

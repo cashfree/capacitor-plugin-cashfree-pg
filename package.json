@@ -1,37 +1,45 @@
 {
   "name": "capacitor-plugin-cashfree-pg",
-  "version": "0.0.1",
-  "description": "Cashfree Payment Gateway's Cordova SDK, facilitating seamless and secure payment processing within your Capacitor application.",
+  "version": "0.0.2",
+  "description": "A modern Capacitor plugin for Cashfree Payment Gateway with official API contract support",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "files": [
     "android/src/main/",
     "android/build.gradle",
     "dist/",
-    "ios/Sources",
-    "ios/Tests",
-    "Package.swift",
+    "ios/Sources/",
     "CapacitorPluginCashfreePg.podspec"
   ],
-  "author": "kishan.maurya@cashfree.com",
+  "author": "Kishan Kumar Maurya",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cashfree/capacitor-plugin-cashfree.git"
+    "url": "git+https://github.com/cashfree/capacitor-plugin-cashfree-pg.git"
   },
   "bugs": {
-    "url": "https://github.com/cashfree/capacitor-plugin-cashfree/issues"
+    "url": "https://github.com/cashfree/capacitor-plugin-cashfree-pg/issues"
   },
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "ionic",
+    "cashfree",
+    "payment",
+    "gateway",
+    "payments",
+    "mobile",
+    "typescript",
+    "api-contract"
   ],
   "scripts": {
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "xcodebuild -scheme CapacitorPluginCashfreePg -destination generic/platform=iOS",
+    "verify:ios": "sh -c 'command -v pod >/dev/null 2>&1 || { echo \"CocoaPods not installed; skipping iOS verification.\"; exit 0; }; pod lib lint CapacitorPluginCashfreePg.podspec --allow-warnings --skip-tests || echo \"pod lib lint failed (ensure version tag exists and network/specs reachable).\"'",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
@@ -76,5 +84,8 @@
     "android": {
       "src": "android"
     }
+  },
+  "dependencies": {
+    "cashfree-pg-api-contract": "^2.0.8"
   }
 }

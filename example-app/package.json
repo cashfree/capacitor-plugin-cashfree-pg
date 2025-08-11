@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-app",
+  "name": "cashfree-capacitor-sample",
   "version": "1.0.0",
   "description": "An Amazing Capacitor App",
   "type": "module",
@@ -13,13 +13,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@capacitor/core": "latest",
-    "capacitor-plugin-cashfree-pg": "file:..",
+    "@capacitor/android": "7.0.0",
+    "@capacitor/core": "7.0.0",
     "@capacitor/ios": "7.0.0",
-    "@capacitor/android": "7.0.0"
+    "capacitor-plugin-cashfree-pg": "file:.."
   },
   "devDependencies": {
-    "@capacitor/cli": "latest",
+    "@capacitor/cli": "7.0.0",
     "vite": "^5.4.2"
   },
   "author": "",

@@ -1,0 +1,58 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/kishankumarmaurya/Library/Developer/Xcode/DerivedData/App-ceexqgggcbmkqegetmtqzwslaibj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/UninstalledProducts/iphoneos/CapacitorPluginCashfreePg.framework/CapacitorPluginCashfreePg'
+relocations:
+  - { offset: 0x60923, size: 0x8, addend: 0x0, symName: _CapacitorPluginCashfreePgVersionString, symObjAddr: 0x0, symBinAddr: 0x9B50, symSize: 0x0 }
+  - { offset: 0x60958, size: 0x8, addend: 0x0, symName: _CapacitorPluginCashfreePgVersionNumber, symObjAddr: 0x38, symBinAddr: 0x9B88, symSize: 0x0 }
+  - { offset: 0x609B1, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C10identifierSSvpfi', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x1C }
+  - { offset: 0x60D1A, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C6jsNameSSvpfi', symObjAddr: 0x60, symBinAddr: 0x4060, symSize: 0x1C }
+  - { offset: 0x60D53, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C13pluginMethodsSaySo15CAPPluginMethodCGvpfi', symObjAddr: 0x108, symBinAddr: 0x4108, symSize: 0x1E8 }
+  - { offset: 0x60E4A, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C11environment33_69EC064B2228F5C8F607DEE2177C2C73LL0C9PGCoreSDK13CFENVIRONMENTOvpfi', symObjAddr: 0x360, symBinAddr: 0x4360, symSize: 0x8 }
+  - { offset: 0x60E62, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C13versionNumber33_69EC064B2228F5C8F607DEE2177C2C73LLSSvpfi', symObjAddr: 0x368, symBinAddr: 0x4368, symSize: 0x14 }
+  - { offset: 0x60E7A, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C18currentPaymentCall33_69EC064B2228F5C8F607DEE2177C2C73LLSo09CAPPluginI0CSgvpfi', symObjAddr: 0x37C, symBinAddr: 0x437C, symSize: 0x8 }
+  - { offset: 0x60FE7, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0CfETo', symObjAddr: 0x30EC, symBinAddr: 0x70EC, symSize: 0x74 }
+  - { offset: 0x61021, size: 0x8, addend: 0x0, symName: '_$ss29getContiguousArrayStorageType3fors01_bcD0CyxGmxm_tlFSo15CAPPluginMethodC_Tgm5', symObjAddr: 0x3160, symBinAddr: 0x7160, symSize: 0x64 }
+  - { offset: 0x6104E, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledName, symObjAddr: 0x31C4, symBinAddr: 0x71C4, symSize: 0x40 }
+  - { offset: 0x6106D, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4find_9hashValues10_HashTableV6BucketV6bucket_Sb5foundtx_SitSHRzlFSS_Tg5', symObjAddr: 0x3204, symBinAddr: 0x7204, symSize: 0xE0 }
+  - { offset: 0x610F0, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFSS_Tg5', symObjAddr: 0x32E4, symBinAddr: 0x72E4, symSize: 0x64 }
+  - { offset: 0x6111D, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV7_insert2at3key5valueys10_HashTableV6BucketV_xnq_ntFSS_ypTg5', symObjAddr: 0x3348, symBinAddr: 0x7348, symSize: 0x68 }
+  - { offset: 0x611A1, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV12mutatingFind_8isUniques10_HashTableV6BucketV6bucket_Sb5foundtx_SbtFSS_ypTg5', symObjAddr: 0x33B0, symBinAddr: 0x73B0, symSize: 0xD8 }
+  - { offset: 0x611ED, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV4copyyyFSS_ypTg5', symObjAddr: 0x3488, symBinAddr: 0x7488, symSize: 0x1F8 }
+  - { offset: 0x612B6, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV20_copyOrMoveAndResize8capacity12moveElementsySi_SbtFSS_ypTg5', symObjAddr: 0x3680, symBinAddr: 0x7680, symSize: 0x32C }
+  - { offset: 0x61464, size: 0x8, addend: 0x0, symName: ___swift_allocate_boxed_opaque_existential_0, symObjAddr: 0x4044, symBinAddr: 0x8044, symSize: 0x3C }
+  - { offset: 0x61478, size: 0x8, addend: 0x0, symName: '_$s10Foundation4DataV15_RepresentationOWOe', symObjAddr: 0x4080, symBinAddr: 0x8080, symSize: 0x44 }
+  - { offset: 0x6148C, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0CMa', symObjAddr: 0x40C4, symBinAddr: 0x80C4, symSize: 0x20 }
+  - { offset: 0x614A0, size: 0x8, addend: 0x0, symName: '_$sypWOc', symObjAddr: 0x40E4, symBinAddr: 0x80E4, symSize: 0x3C }
+  - { offset: 0x614B4, size: 0x8, addend: 0x0, symName: '_$s9Capacitor7JSValue_pWOb', symObjAddr: 0x4120, symBinAddr: 0x8120, symSize: 0x18 }
+  - { offset: 0x614C8, size: 0x8, addend: 0x0, symName: '_$s9Capacitor7JSValue_pWOc', symObjAddr: 0x4138, symBinAddr: 0x8138, symSize: 0x44 }
+  - { offset: 0x614DC, size: 0x8, addend: 0x0, symName: '_$sSD8IteratorV8_VariantOySS9Capacitor7JSValue_p__GWOe', symObjAddr: 0x41B8, symBinAddr: 0x81B8, symSize: 0x8 }
+  - { offset: 0x614F0, size: 0x8, addend: 0x0, symName: '_$sypWOb', symObjAddr: 0x41C0, symBinAddr: 0x81C0, symSize: 0x10 }
+  - { offset: 0x61504, size: 0x8, addend: 0x0, symName: ___swift_destroy_boxed_opaque_existential_0, symObjAddr: 0x41D0, symBinAddr: 0x81D0, symSize: 0x20 }
+  - { offset: 0x6166A, size: 0x8, addend: 0x0, symName: '_$ss17_dictionaryUpCastySDyq0_q1_GSDyxq_GSHRzSHR0_r2_lFSS_9Capacitor7JSValue_pSSypTg5', symObjAddr: 0x8FC, symBinAddr: 0x48FC, symSize: 0x424 }
+  - { offset: 0x618F4, size: 0x8, addend: 0x0, symName: '_$sSlsE6prefixy11SubSequenceQzSiFSS_Tg5Tf4ng_n', symObjAddr: 0x3D98, symBinAddr: 0x7D98, symSize: 0x88 }
+  - { offset: 0x6196D, size: 0x8, addend: 0x0, symName: '_$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSS_9Capacitor7JSValue_pTgm5Tf4g_n', symObjAddr: 0x3E20, symBinAddr: 0x7E20, symSize: 0x114 }
+  - { offset: 0x61A8A, size: 0x8, addend: 0x0, symName: '_$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSS_ypTgm5Tf4g_n', symObjAddr: 0x3F34, symBinAddr: 0x7F34, symSize: 0x110 }
+  - { offset: 0x61BA8, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C10identifierSSvg', symObjAddr: 0x28, symBinAddr: 0x4028, symSize: 0x38 }
+  - { offset: 0x61BCD, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C6jsNameSSvg', symObjAddr: 0xD0, symBinAddr: 0x40D0, symSize: 0x38 }
+  - { offset: 0x61CEE, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C13pluginMethodsSaySo15CAPPluginMethodCGvgTo', symObjAddr: 0x2F0, symBinAddr: 0x42F0, symSize: 0x60 }
+  - { offset: 0x61D21, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C13pluginMethodsSaySo15CAPPluginMethodCGvg', symObjAddr: 0x350, symBinAddr: 0x4350, symSize: 0x10 }
+  - { offset: 0x61EAF, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C20doWebCheckoutPaymentyySo13CAPPluginCallCF', symObjAddr: 0x384, symBinAddr: 0x4384, symSize: 0x578 }
+  - { offset: 0x6222D, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C20doWebCheckoutPaymentyySo13CAPPluginCallCFTo', symObjAddr: 0xD20, symBinAddr: 0x4D20, symSize: 0x50 }
+  - { offset: 0x62316, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C21doSubscriptionPaymentyySo13CAPPluginCallCF', symObjAddr: 0xD70, symBinAddr: 0x4D70, symSize: 0x900 }
+  - { offset: 0x62810, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C21doSubscriptionPaymentyySo13CAPPluginCallCFTo', symObjAddr: 0x1670, symBinAddr: 0x5670, symSize: 0x50 }
+  - { offset: 0x62913, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C12doUPIPaymentyySo13CAPPluginCallCF', symObjAddr: 0x16C0, symBinAddr: 0x56C0, symSize: 0xBF8 }
+  - { offset: 0x62EC3, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C12doUPIPaymentyySo13CAPPluginCallCFTo', symObjAddr: 0x22B8, symBinAddr: 0x62B8, symSize: 0x50 }
+  - { offset: 0x62F6E, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C7onError_8order_idy0C9PGCoreSDK15CFErrorResponseC_SStF', symObjAddr: 0x2308, symBinAddr: 0x6308, symSize: 0x364 }
+  - { offset: 0x63125, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C7onError_8order_idy0C9PGCoreSDK15CFErrorResponseC_SStFTo', symObjAddr: 0x266C, symBinAddr: 0x666C, symSize: 0x74 }
+  - { offset: 0x63139, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C13verifyPayment8order_idySS_tF', symObjAddr: 0x26E0, symBinAddr: 0x66E0, symSize: 0xC }
+  - { offset: 0x63180, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C13verifyPayment8order_idySS_tFTo', symObjAddr: 0x26EC, symBinAddr: 0x66EC, symSize: 0x64 }
+  - { offset: 0x631C9, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C15triggerCallback33_69EC064B2228F5C8F607DEE2177C2C73LL7orderID5errorySSSg_AHtF', symObjAddr: 0x2750, symBinAddr: 0x6750, symSize: 0x244 }
+  - { offset: 0x633AA, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C6bridge8pluginId0H4NameAC0A017CAPBridgeProtocol_p_S2StcfC', symObjAddr: 0x2994, symBinAddr: 0x6994, symSize: 0xB4 }
+  - { offset: 0x633BE, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C6bridge8pluginId0H4NameAC0A017CAPBridgeProtocol_p_S2Stcfc', symObjAddr: 0x2A48, symBinAddr: 0x6A48, symSize: 0x31C }
+  - { offset: 0x634E4, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C6bridge8pluginId0H4NameAC0A017CAPBridgeProtocol_p_S2StcfcTo', symObjAddr: 0x2D64, symBinAddr: 0x6D64, symSize: 0x74 }
+  - { offset: 0x634F8, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0CACycfC', symObjAddr: 0x2DD8, symBinAddr: 0x6DD8, symSize: 0x20 }
+  - { offset: 0x6350C, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0CACycfc', symObjAddr: 0x2DF8, symBinAddr: 0x6DF8, symSize: 0x2A4 }
+  - { offset: 0x63608, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0CACycfcTo', symObjAddr: 0x309C, symBinAddr: 0x709C, symSize: 0x20 }
+  - { offset: 0x6361C, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0CfD', symObjAddr: 0x30BC, symBinAddr: 0x70BC, symSize: 0x30 }
+  - { offset: 0x63653, size: 0x8, addend: 0x0, symName: '_$s25CapacitorPluginCashfreePg016CFPaymentGatewayB0C14buildCFSession33_69EC064B2228F5C8F607DEE2177C2C73LL4from0C9PGCoreSDK0H0CSgSDySSypG_tKFTf4nd_n', symObjAddr: 0x39AC, symBinAddr: 0x79AC, symSize: 0x3EC }
+...
