@@ -17,7 +17,7 @@ public class CFPaymentGatewayPlugin: CAPPlugin, CAPBridgedPlugin, CFResponseDele
         CAPPluginMethod(name: "doSubscriptionPayment", returnType: CAPPluginReturnPromise)
     ]
     private var environment: CFENVIRONMENT = .SANDBOX
-    private let versionNumber = "2.2.4"
+    private let versionNumber = "0.0.3"
     private var currentPaymentCall: CAPPluginCall?
 
     @objc func doWebCheckoutPayment(_ call: CAPPluginCall) {
@@ -66,7 +66,7 @@ public class CFPaymentGatewayPlugin: CAPPlugin, CAPBridgedPlugin, CFResponseDele
                     .build()
 
                 let systemVersion = UIDevice.current.systemVersion
-                subscriptionCheckoutPayment.setPlatform("icap-c-\(versionNumber)-xx-m-s-x-i-\(systemVersion.prefix(4))")
+                subscriptionCheckoutPayment.setPlatform("icap-sbc-\(versionNumber)-xx-m-s-x-i-\(systemVersion.prefix(4))")
                 let cfPaymentGateway = CFPaymentGatewayService.getInstance()
 
                 if let viewController = self.bridge?.viewController {

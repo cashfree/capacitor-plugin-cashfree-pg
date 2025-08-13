@@ -3,6 +3,7 @@ package com.ionicframework.capacitor.cashfree;
 import com.cashfree.pg.api.CFPaymentGatewayService;
 import com.cashfree.pg.core.api.CFSession;
 import com.cashfree.pg.core.api.CFSubscriptionSession;
+import com.cashfree.pg.core.api.base.CFPayment;
 import com.cashfree.pg.core.api.callback.CFCheckoutResponseCallback;
 import com.cashfree.pg.core.api.callback.CFSubscriptionResponseCallback;
 import com.cashfree.pg.core.api.exception.CFInvalidArgumentException;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 @CapacitorPlugin(name = "CFPaymentGateway")
 public class CFPaymentGatewayPlugin extends Plugin implements CFCheckoutResponseCallback, CFSubscriptionResponseCallback {
 
+    private static final String CF_CAP_SDK_VERSION = "0.0.3";
     private static final String TAG = "CFPaymentGatewayPlugin";
     private static final String THEME = "theme";
     private static final String SESSION = "session";
@@ -59,6 +61,10 @@ public class CFPaymentGatewayPlugin extends Plugin implements CFCheckoutResponse
                 .setSession(cfSession)
                 .setCFWebCheckoutUITheme(cfWebTheme)
                 .build();
+
+            CFPayment.CFSDKFramework.CAPACITOR.withVersion(CF_CAP_SDK_VERSION);
+            cfWebCheckoutPayment.setCfsdkFramework(CFPayment.CFSDKFramework.CAPACITOR);
+            cfWebCheckoutPayment.setCfSDKFlavour(CFPayment.CFSDKFlavour.WEB_CHECKOUT);
 
             if (getActivity() != null) {
                 CFPaymentGatewayService gatewayService = CFPaymentGatewayService.getInstance();
@@ -101,6 +107,10 @@ public class CFPaymentGatewayPlugin extends Plugin implements CFCheckoutResponse
                 .setSubscriptionSession(cfSession)
                 .setSubscriptionUITheme(cfWebTheme)
                 .build();
+
+            CFPayment.CFSDKFramework.CAPACITOR.withVersion(CF_CAP_SDK_VERSION);
+            cfSubscriptionPayment.setCfsdkFramework(CFPayment.CFSDKFramework.CAPACITOR);
+            cfSubscriptionPayment.setCfSDKFlavour(CFPayment.CFSDKFlavour.SUBSCRIPTION);
 
             if (getActivity() != null) {
                 CFPaymentGatewayService gatewayService = CFPaymentGatewayService.getInstance();
@@ -145,6 +155,10 @@ public class CFPaymentGatewayPlugin extends Plugin implements CFCheckoutResponse
                 .setSession(cfSession)
                 .setCfIntentTheme(cfTheme)
                 .build();
+
+            CFPayment.CFSDKFramework.CAPACITOR.withVersion(CF_CAP_SDK_VERSION);
+            cfUpiIntentCheckoutPayment.setCfsdkFramework(CFPayment.CFSDKFramework.CAPACITOR);
+            cfUpiIntentCheckoutPayment.setCfSDKFlavour(CFPayment.CFSDKFlavour.INTENT);
 
             if (getActivity() != null) {
                 CFPaymentGatewayService gatewayService = CFPaymentGatewayService.getInstance();
