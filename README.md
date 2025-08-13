@@ -3,8 +3,8 @@
 ## 🎯 Project Overview
 
 **Plugin Name**: capacitor-plugin-cashfree-pg  
-**Version**: 0.0.3
-**Purpose**: Modern Capacitor plugin for Cashfree Payment Gateway
+**Version**: 0.0.3  
+**Purpose**: Modern Capacitor plugin for Cashfree Payment Gateway  
 **Target Framework**: Capacitor 7+ with TypeScript  
 
 ## ✅ Completed Features
