@@ -77,7 +77,7 @@ capacitor-plugin-cashfree-pg/
 |--------|---------|------------|---------|
 | `doWebCheckoutPayment()` | Web Checkout payment | `CheckoutPayment` | `Promise<CFPaymentResult>` |
 | `doUPIPayment()` | UPIIntent Checkout payment | `CheckoutPayment` | `Promise<CFPaymentResult>` |
-| `doSubscriptionPayment()` | Subscription Checkout payment | `CheckoutPayment` | `CFPaymentResult<CFPaymentResult>` |
+| `doSubscriptionPayment()` | Subscription Checkout payment | `CheckoutPayment` | `Promise<CFPaymentResult>` |
 
 ## 📱 Payment Methods Supported
 
