@@ -1,6 +1,6 @@
 {
   "name": "capacitor-plugin-cashfree-pg",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A modern Capacitor plugin for Cashfree Payment Gateway with official API contract support",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -86,6 +86,6 @@
     }
   },
   "dependencies": {
-    "cashfree-pg-api-contract": "^2.0.8"
+    "cashfree-pg-api-contract": "^2.1.1"
   }
 }

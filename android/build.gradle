@@ -48,5 +48,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
-    implementation 'com.cashfree.pg:api:2.2.8'
+    implementation 'com.cashfree.pg:api:2.4.0'
 }

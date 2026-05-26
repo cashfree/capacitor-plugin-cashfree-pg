@@ -17,7 +17,7 @@ public class CFPaymentGatewayPlugin: CAPPlugin, CAPBridgedPlugin, CFResponseDele
         CAPPluginMethod(name: "doSubscriptionPayment", returnType: CAPPluginReturnPromise)
     ]
     private var environment: CFENVIRONMENT = .SANDBOX
-    private let versionNumber = "0.0.3"
+    private let versionNumber = "0.1.0"
     private var currentPaymentCall: CAPPluginCall?
 
     @objc func doWebCheckoutPayment(_ call: CAPPluginCall) {
@@ -36,6 +36,7 @@ public class CFPaymentGatewayPlugin: CAPPlugin, CAPBridgedPlugin, CFResponseDele
 
                 let systemVersion = UIDevice.current.systemVersion
                 cfWebCheckoutPayment.setPlatform("icap-c-\(versionNumber)-xx-m-s-x-i-\(systemVersion.prefix(4))")
+                cfWebCheckoutPayment.setCancelButtonVisibility(true)
                 let cfPaymentGateway = CFPaymentGatewayService.getInstance()
 
                 if let viewController = self.bridge?.viewController {
@@ -59,22 +60,24 @@ public class CFPaymentGatewayPlugin: CAPPlugin, CAPBridgedPlugin, CFResponseDele
         }
 
         do {
-            let cfSession = try! buildCFSubscriptionSession(from: sessionObj)
-            if cfSession != nil {
-                let subscriptionCheckoutPayment = try CFSubscriptionPayment.CFSubscriptionPaymentBuilder()
-                    .setSession(cfSession!)
-                    .build()
+            guard let cfSession = try! buildCFSubscriptionSession(from: sessionObj) else {
+                call.reject("Failed to build subscription session: ensure session contains subscription_id and subscription_session_id")
+                return
+            }
 
-                let systemVersion = UIDevice.current.systemVersion
-                subscriptionCheckoutPayment.setPlatform("icap-sbc-\(versionNumber)-xx-m-s-x-i-\(systemVersion.prefix(4))")
-                let cfPaymentGateway = CFPaymentGatewayService.getInstance()
+            let subscriptionCheckoutPayment = try CFSubscriptionPayment.CFSubscriptionPaymentBuilder()
+                .setSession(cfSession)
+                .build()
 
-                if let viewController = self.bridge?.viewController {
-                    cfPaymentGateway.setCallback(self)
-                    try cfPaymentGateway.startSubscription(subscriptionCheckoutPayment, viewController: viewController)
-                } else {
-                    call.reject("Unable to access view controller")
-                }
+            let systemVersion = UIDevice.current.systemVersion
+            subscriptionCheckoutPayment.setPlatform("icap-s-\(versionNumber)-xx-m-s-x-i-\(systemVersion.prefix(4))")
+            let cfPaymentGateway = CFPaymentGatewayService.getInstance()
+
+            if let viewController = self.bridge?.viewController {
+                cfPaymentGateway.setCallback(self)
+                try cfPaymentGateway.startSubscription(subscriptionCheckoutPayment, viewController: viewController)
+            } else {
+                call.reject("Unable to access view controller")
             }
         } catch let error {
             print("Subscription checkout payment failed: \(error.localizedDescription)")
