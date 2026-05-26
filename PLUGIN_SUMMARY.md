@@ -3,7 +3,7 @@
 ## 🎯 Project Overview
 
 **Plugin Name**: capacitor-plugin-cashfree-pg  
-**Version**: 0.0.3  
+**Version**: 0.1.0  
 **Purpose**: Modern Capacitor plugin for Cashfree Payment Gateway  
 **Target Framework**: Capacitor 7+ with TypeScript    
 
@@ -15,12 +15,12 @@
 - ✅ **Cross-platform Support**: Android and iOS implementations
 
 ### Android Implementation
-- ✅ **Native Java Code**: Complete Android implementation using Cashfree SDK 2.2.8
+- ✅ **Native Java Code**: Complete Android implementation using Cashfree SDK 2.4.0
 - ✅ **Multiple Payment Flows**: Support for all payment methods
 - ✅ **Error Handling**: Comprehensive error management
 
 ### iOS Implementation  
-- ✅ **Native Swift Code**: Complete iOS implementation using Cashfree SDK 2.2.4
+- ✅ **Native Swift Code**: Complete iOS implementation using Cashfree SDK 2.4.0
 - ✅ **CocoaPods Integration**: Proper dependency management
 - ✅ **Theme Support**: UI customization capabilities
 
@@ -54,15 +54,15 @@ capacitor-plugin-cashfree-pg/
 
 ### Frontend
 - **Capacitor**: 7.0.0 (Core framework)
-- **cashfree-pg-api-contract**: 2.0.8
+- **cashfree-pg-api-contract**: 2.1.1
 
 ### Android
-- **Cashfree Android SDK**: 2.2.8
+- **Cashfree Android SDK**: 2.4.0
 - **Java**: Native implementation
 - **Gradle**: Build system
 
 ### iOS
-- **Cashfree iOS SDK**: 2.2.4  
+- **Cashfree iOS SDK**: 2.4.0  
 - **Swift**: Native implementation
 - **CocoaPods**: Dependency management
 

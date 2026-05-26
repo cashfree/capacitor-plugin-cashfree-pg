@@ -1,13 +1,80 @@
 import { CFPaymentGateway } from 'capacitor-plugin-cashfree-pg';
+import { CapacitorHttp } from '@capacitor/core';
 
-// Start Web Checkout payment
+// ─── Config ──────────────────────────────────────────────────────────────────
+// Switch environment here: 'SANDBOX' | 'PRODUCTION'
+const CONFIG = {
+  environment: 'SANDBOX',
+  clientId: 'TEST430329ae80e0f32e41a393d78b923034',
+  clientSecret: 'TESTaf195616268bd6202eeb3bf8dc458956e7192a85',
+  apiVersion: '2025-01-01',
+};
+
+const API_BASE = {
+  SANDBOX: 'https://sandbox.cashfree.com',
+  PRODUCTION: 'https://api.cashfree.com',
+};
+
+// ─── Order Creation ───────────────────────────────────────────────────────────
+async function createOrder() {
+  const orderId = `example_${Date.now()}`;
+  const response = await CapacitorHttp.post({
+    url: `${API_BASE[CONFIG.environment]}/pg/orders`,
+    headers: {
+      'x-client-id': CONFIG.clientId,
+      'x-client-secret': CONFIG.clientSecret,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'x-api-version': CONFIG.apiVersion,
+    },
+    data: {
+      order_amount: 1.0,
+      order_currency: 'INR',
+      order_id: orderId,
+      customer_details: {
+        customer_id: 'devstudio_user',
+        customer_phone: '9876543210',
+      },
+      order_meta: {
+        return_url: `https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}`,
+      },
+    },
+  });
+
+  if (response.status < 200 || response.status >= 300) {
+    throw new Error(response.data?.message || `Order creation failed (${response.status})`);
+  }
+
+  return {
+    orderId: response.data.order_id,
+    paymentSessionId: response.data.payment_session_id,
+  };
+}
+
+// ─── UI Helpers ───────────────────────────────────────────────────────────────
+function setResult(elementId, html, isError = false) {
+  const el = document.getElementById(elementId);
+  el.className = `result${isError ? ' error' : ''}`;
+  el.innerHTML = html;
+  el.style.display = 'block';
+}
+
+function setLoading(elementId, message) {
+  setResult(elementId, `<p>⏳ ${message}</p>`);
+}
+
+// ─── Payment Methods ──────────────────────────────────────────────────────────
 window.startWebPayment = async () => {
+  setLoading('webPaymentResult', 'Creating order...');
   try {
+    const { orderId, paymentSessionId } = await createOrder();
+    setLoading('webPaymentResult', `Order created: ${orderId}. Launching payment...`);
+
     const result = await CFPaymentGateway.doWebCheckoutPayment({
       session: {
-        payment_session_id: 'session_owAz-uWF2WEapSR5KgwUnmnQqRqqKsU9WK4QcuvgeBJk-nzMe4R2FYADT583rCUYx_WxhmNnx7PaaIeBWWTItjU0UeAf9uSKS_l0ZF6yrBWsNiOgynvRTAJfjzcpayment',
-        orderID: 'devstudio_7359181814571428889',
-        environment: 'SANDBOX',
+        payment_session_id: paymentSessionId,
+        orderID: orderId,
+        environment: CONFIG.environment,
       },
       theme: {
         navigationBarBackgroundColor: '#FF6B35',
@@ -16,77 +83,28 @@ window.startWebPayment = async () => {
     });
 
     console.log('Web Payment Result:', result);
-    
-    // Check if payment was successful or has errors
     if (result.error) {
-      document.getElementById('webPaymentResult').innerHTML = `
-              <h3>Web Payment Failed</h3>
-              <p><strong>Order ID:</strong> ${result.orderID || 'N/A'}</p>
-              <p><strong>Error:</strong> ${result.error}</p>
-          `;
+      setResult('webPaymentResult', `<h3>Web Payment Failed</h3><p><strong>Order ID:</strong> ${result.orderID || orderId}</p><p><strong>Error:</strong> ${result.error}</p>`, true);
     } else {
-      document.getElementById('webPaymentResult').innerHTML = `
-              <h3>Web Payment Result</h3>
-              <p><strong>Order ID:</strong> ${result.orderID}</p>
-              <p><strong>Status:</strong> Verification needed - check with your backend</p>
-          `;
+      setResult('webPaymentResult', `<h3>Web Payment Initiated</h3><p><strong>Order ID:</strong> ${result.orderID}</p><p><strong>Status:</strong> Verify with your backend</p>`);
     }
   } catch (error) {
     console.error('Web payment error:', error);
-    document.getElementById('webPaymentResult').innerHTML = `
-            <h3>Web Payment Error</h3>
-            <p>${error.message}</p>
-        `;
+    setResult('webPaymentResult', `<h3>Error</h3><p>${error.message}</p>`, true);
   }
 };
 
-window.startSubscriptionPayment = async () => {
-  try {
-    const result = await CFPaymentGateway.doSubscriptionPayment({
-      session: {
-        subscription_session_id: 'sub_session_rvdQ8okpc588vZREXqOshOS390phef04Vo66GOK-K-NRwmlFlAHhaEkCxkzgT7JkUIQ8HRb4SWpx3SUdQZcZ8bAHsMeFrpANACyD7M6L1lD4PQY7CLolHOZvSqYcu6opayment',
-        subscription_id: 'devstudio_subs_7360376822904552076',
-        environment: 'SANDBOX',
-      },
-      theme: {
-        navigationBarBackgroundColor: '#FF6B35',
-        navigationBarTextColor: '#FFFFFF',
-      },
-    });
-
-    console.log('Subscription Payment Result:', result);
-    
-    // Check if payment was successful or has errors
-    if (result.error) {
-      document.getElementById('subscriptionPaymentResult').innerHTML = `
-              <h3>Subscription Payment Failed</h3>
-              <p><strong>Order ID:</strong> ${result.orderID || 'N/A'}</p>
-              <p><strong>Error:</strong> ${result.error}</p>
-          `;
-    } else {
-      document.getElementById('subscriptionPaymentResult').innerHTML = `
-              <h3>Subscription Payment Result</h3>
-              <p><strong>Order ID:</strong> ${result.orderID}</p>
-              <p><strong>Status:</strong> Verification needed - check with your backend</p>
-          `;
-    }
-  } catch (error) {
-    console.error('Subscription payment error:', error);
-    document.getElementById('subscriptionPaymentResult').innerHTML = `
-            <h3>Subscription Payment Error</h3>
-            <p>${error.message}</p>
-        `;
-  }
-};
-
-// Start UPI payment
 window.startUPIPayment = async () => {
+  setLoading('upiPaymentResult', 'Creating order...');
   try {
+    const { orderId, paymentSessionId } = await createOrder();
+    setLoading('upiPaymentResult', `Order created: ${orderId}. Launching UPI...`);
+
     const result = await CFPaymentGateway.doUPIPayment({
       session: {
-        payment_session_id: 'session_owAz-uWF2WEapSR5KgwUnmnQqRqqKsU9WK4QcuvgeBJk-nzMe4R2FYADT583rCUYx_WxhmNnx7PaaIeBWWTItjU0UeAf9uSKS_l0ZF6yrBWsNiOgynvRTAJfjzcpayment',
-        orderID: 'devstudio_7359181814571428889',
-        environment: 'SANDBOX',
+        payment_session_id: paymentSessionId,
+        orderID: orderId,
+        environment: CONFIG.environment,
       },
       theme: {
         navigationBarBackgroundColor: '#FF6B35',
@@ -96,26 +114,46 @@ window.startUPIPayment = async () => {
     });
 
     console.log('UPI Payment Result:', result);
-    
-    // Check if payment was successful or has errors
     if (result.error) {
-      document.getElementById('upiPaymentResult').innerHTML = `
-              <h3>UPI Payment Failed</h3>
-              <p><strong>Order ID:</strong> ${result.orderID || 'N/A'}</p>
-              <p><strong>Error:</strong> ${result.error}</p>
-          `;
+      setResult('upiPaymentResult', `<h3>UPI Payment Failed</h3><p><strong>Order ID:</strong> ${result.orderID || orderId}</p><p><strong>Error:</strong> ${result.error}</p>`, true);
     } else {
-      document.getElementById('upiPaymentResult').innerHTML = `
-              <h3>UPI Payment Result</h3>
-              <p><strong>Order ID:</strong> ${result.orderID}</p>
-              <p><strong>Status:</strong> Verification needed - check with your backend</p>
-          `;
+      setResult('upiPaymentResult', `<h3>UPI Payment Initiated</h3><p><strong>Order ID:</strong> ${result.orderID}</p><p><strong>Status:</strong> Verify with your backend</p>`);
     }
   } catch (error) {
     console.error('UPI payment error:', error);
-    document.getElementById('upiPaymentResult').innerHTML = `
-            <h3>UPI Payment Error</h3>
-            <p>${error.message}</p>
-        `;
+    setResult('upiPaymentResult', `<h3>Error</h3><p>${error.message}</p>`, true);
+  }
+};
+
+window.startSubscriptionPayment = async () => {
+  setLoading('subscriptionPaymentResult', 'Creating order...');
+  try {
+    const { orderId, paymentSessionId } = await createOrder();
+    setLoading('subscriptionPaymentResult', `Order created: ${orderId}. Launching subscription...`);
+
+    const result = await CFPaymentGateway.doSubscriptionPayment({
+      session: {
+        // Subscription checkout requires subscription_session_id + subscription_id.
+        // A regular payment_session_id from /pg/orders is not valid here —
+        // use the Cashfree Subscription API to get these values.
+        subscription_session_id: paymentSessionId,
+        subscription_id: orderId,
+        environment: CONFIG.environment,
+      },
+      theme: {
+        navigationBarBackgroundColor: '#FF6B35',
+        navigationBarTextColor: '#FFFFFF',
+      },
+    });
+
+    console.log('Subscription Payment Result:', result);
+    if (result.error) {
+      setResult('subscriptionPaymentResult', `<h3>Subscription Payment Failed</h3><p><strong>Order ID:</strong> ${result.orderID || orderId}</p><p><strong>Error:</strong> ${result.error}</p>`, true);
+    } else {
+      setResult('subscriptionPaymentResult', `<h3>Subscription Payment Initiated</h3><p><strong>Order ID:</strong> ${result.orderID}</p><p><strong>Status:</strong> Verify with your backend</p>`);
+    }
+  } catch (error) {
+    console.error('Subscription payment error:', error);
+    setResult('subscriptionPaymentResult', `<h3>Error</h3><p>${error.message}</p>`, true);
   }
 };

@@ -25,7 +25,7 @@ import org.json.JSONObject;
 @CapacitorPlugin(name = "CFPaymentGateway")
 public class CFPaymentGatewayPlugin extends Plugin implements CFCheckoutResponseCallback, CFSubscriptionResponseCallback {
 
-    private static final String CF_CAP_SDK_VERSION = "0.0.3";
+    private static final String CF_CAP_SDK_VERSION = "0.1.0";
     private static final String TAG = "CFPaymentGatewayPlugin";
     private static final String THEME = "theme";
     private static final String SESSION = "session";
